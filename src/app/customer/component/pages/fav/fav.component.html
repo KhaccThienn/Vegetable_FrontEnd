@@ -1,1 +1,54 @@
-<p>fav works!</p>
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">List Favourite</h4>
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <div class="table-responsive">
+              <table class="data-tables table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Sale Price</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of datas">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.sale_price }}</td>
+                    <td class="w-25">
+                      <img
+                        src="{{ item.image }}"
+                        alt="{{ item.name }}"
+                        class="card-img"
+                      />
+                    </td>
+                    <td>{{ item.catename }}</td>
+                    <td>{{ item.status == 1 ? "Show" : "Hide" }}</td>
+                    <td>{{ item.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

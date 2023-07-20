@@ -15,6 +15,13 @@ export class FavouriteService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getAllFavByUser(id: any): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${URLAPI}/favourite/read-favourite/${id}`, httpOptions).pipe(
+      tap(o => console.log("Get ALl")),
+      catchError(this.handleError("getAllFavByUser", []))
+    )
+  }
+
   addToFavourite(data: any): Observable<any> {
     return this.httpClient.post<any>(`${URLAPI}/favourite/post-favourite`, data, httpOptions)
       .pipe(

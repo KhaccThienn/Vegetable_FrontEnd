@@ -69,7 +69,7 @@
                         >Add To Cart</a
                       >
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" *ngIf="userData?.id">
                       <button
                         (click)="addToFavour()"
                         class="text-body text-center btn"

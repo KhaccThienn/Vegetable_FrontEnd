@@ -11,7 +11,7 @@
   <div id="sidebar-scrollbar">
     <nav class="iq-sidebar-menu">
       <ul id="iq-sidebar-toggle" class="iq-menu">
-        <li class="active active-menu">
+        <li class="active-menu">
           <a routerLink="/" class="iq-waves-effect">
             <span class="ripple rippleEffect"></span>
             <i class="las la-home iq-arrow-left"></i>
@@ -46,9 +46,21 @@
             </li>
           </ul>
         </li>
-
-        <li *ngIf="userData?.id">
-          <a href="book-page.html"><i class="ri-book-line"></i>Favourite</a>
+        <li class="active-menu">
+          <a routerLink="/product" class="iq-waves-effect">
+            <span class="ripple rippleEffect"></span>
+            <i class="ri-play-circle-line"></i>
+            <span>Product</span>
+            <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+          </a>
+        </li>
+        <li class="active-menu" *ngIf="userData?.id">
+          <a routerLink="/favourite" class="iq-waves-effect">
+            <span class="ripple rippleEffect"></span>
+            <i class="ri-play-circle-line"></i>
+            <span>Favourite</span>
+            <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+          </a>
         </li>
       </ul>
     </nav>

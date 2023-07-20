@@ -47,6 +47,7 @@ export class DetailsComponent implements OnInit {
     // console.log("postData: ", postData);
     this.favouriteService.addToFavourite(postData).subscribe((response: any) => {
       console.log(response);
+      this.router.navigate(['/favourite']);
     }, err => {
       console.log(err);
     });

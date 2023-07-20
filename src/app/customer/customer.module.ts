@@ -9,6 +9,7 @@ import { SidebarComponent } from './component/layouts/sidebar/sidebar.component'
 import { ListProductsComponent } from './component/pages/list-products/list-products.component';
 import { DetailsComponent } from './component/pages/details/details.component';
 import { FavComponent } from './component/pages/fav/fav.component';
+import { ProductsComponent } from './component/pages/products/products.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FavComponent } from './component/pages/fav/fav.component';
     SidebarComponent,
     ListProductsComponent,
     DetailsComponent,
-    FavComponent
+    FavComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,

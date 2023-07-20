@@ -29,6 +29,13 @@ export class HomeServiceService {
     )
   }
 
+  getAllProduct(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${URLAPI}/product/read-product`, httpOptions).pipe(
+      tap(o => console.log("Get ALl")),
+      catchError(this.handleError("getAllCategory", []))
+    )
+  }
+
   getAllSaleProduct(): Observable<any[]> {
     return this.httpClient.get<any[]>(`${URLAPI}/product/read-sale-product`, httpOptions).pipe(
       tap(o => console.log("Get ALl")),
