@@ -1,0 +1,59 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Accounts</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+              <a routerLink="/admin/account/add" class="btn btn-primary"
+                >Add New Admin Account</a
+              >
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <div class="table-responsive">
+              <table class="data-tables table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <!-- <th>Actions</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of data">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.role }}</td>
+                    <!-- <td>
+                      <div class="flex align-items-center list-user-action">
+                        <a
+                          class="bg-primary"
+                          data-toggle="tooltip"
+                          [routerLink]="['/admin/category/edit/', item.id]"
+                          data-placement="top"
+                          data-original-title="Edit"
+                          asp-action="Edit"
+                        >
+                          <i class="ri-pencil-line"></i>
+                        </a>
+                      </div>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

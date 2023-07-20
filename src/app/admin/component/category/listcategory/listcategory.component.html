@@ -1,0 +1,80 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Category</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+              <a routerLink="/admin/category/add" class="btn btn-primary"
+                >Add New</a
+              >
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <div class="col-lg-4 p-0">
+              <form [formGroup]="myGroup">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search in Category.."
+                  formControlName="keywords"
+                  (input)="handleChange($event)"
+                />
+              </form>
+            </div>
+            <div class="table-responsive">
+              <table class="data-tables table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of data">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.status == 1 ? "Show" : "Hide" }}</td>
+                    <td>
+                      <div class="flex align-items-center list-user-action">
+                        <a
+                          class="bg-primary"
+                          data-toggle="tooltip"
+                          [routerLink]="['/admin/category/edit/', item.id]"
+                          data-placement="top"
+                          data-original-title="Edit"
+                          asp-action="Edit"
+                        >
+                          <i class="ri-pencil-line"></i>
+                        </a>
+                        <button
+                          class="bg-primary btn btn-debug"
+                          data-toggle="tooltip"
+                          (click)="delete(item.id)"
+                          [routerLink]="['/admin/category', '']"
+                          data-placement="top"
+                          title=""
+                          data-original-title="Delete"
+                          href="#"
+                        >
+                          <i class="ri-delete-bin-line"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

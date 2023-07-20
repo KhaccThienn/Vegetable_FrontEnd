@@ -1,0 +1,138 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Add new</h4>
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <form [formGroup]="accountFormPost" (ngSubmit)="handleSubmit()">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-control"
+                  id="name"
+                  aria-describedby="emailHelp"
+                />
+                <div
+                  class="box-message"
+                  *ngIf="
+                    accountFormPost.controls.name.invalid &&
+                    (accountFormPost.controls.name.touched ||
+                      accountFormPost.controls.name.dirty)
+                  "
+                >
+                  <div *ngIf="accountFormPost.controls.name.errors">
+                    <div
+                      *ngIf="accountFormPost.controls.name.errors['required']"
+                      style="color: red"
+                    >
+                      name is require!
+                    </div>
+                    <div
+                      *ngIf="accountFormPost.controls.name.errors['minlength']"
+                      style="color: red"
+                    >
+                      Min length 5 chars
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  formControlName="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="emailHelp"
+                />
+                <div
+                  class="box-message"
+                  *ngIf="
+                    accountFormPost.controls.email.invalid &&
+                    (accountFormPost.controls.email.touched ||
+                      accountFormPost.controls.email.dirty)
+                  "
+                >
+                  <div *ngIf="accountFormPost.controls.email.errors">
+                    <div
+                      *ngIf="accountFormPost.controls.email.errors['required']"
+                      style="color: red"
+                    >
+                      Email is require!
+                    </div>
+                    <div
+                      *ngIf="accountFormPost.controls.email.errors['email']"
+                      style="color: red"
+                    >
+                      Incorrect Email Format
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control mb-0"
+                  id="exampleInputPassword1"
+                />
+                <div
+                  class="box-message"
+                  *ngIf="
+                    accountFormPost.controls.password.invalid &&
+                    (accountFormPost.controls.password.touched ||
+                      accountFormPost.controls.password.dirty)
+                  "
+                >
+                  <div *ngIf="accountFormPost.controls.password.errors">
+                    <div
+                      *ngIf="
+                        accountFormPost.controls.password.errors['required']
+                      "
+                      style="color: red"
+                    >
+                      password is require!
+                    </div>
+                    <div
+                      *ngIf="
+                        accountFormPost.controls.password.errors['minlength']
+                      "
+                      style="color: red"
+                    >
+                      Min length 6 chars
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                *ngIf="accountFormPost.valid"
+                class="btn btn-primary"
+              >
+                Submit
+              </button>
+              <button
+                type="submit"
+                *ngIf="!accountFormPost.valid"
+                disabled
+                class="btn btn-primary"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

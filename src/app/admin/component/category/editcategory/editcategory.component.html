@@ -1,0 +1,43 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Update</h4>
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <form [formGroup]="categoryFormUpdate" (ngSubmit)="handleSubmit()">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp">
+                <div class="box-message"
+                  *ngIf="categoryFormUpdate.controls.name.invalid && (categoryFormUpdate.controls.name.touched || categoryFormUpdate.controls.name.dirty)">
+                  <div *ngIf="categoryFormUpdate.controls.name.errors">
+
+                    <div *ngIf="categoryFormUpdate.controls.name.errors['required']" style="color: red;">name is require!
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" formControlName="status" class="form-control" id="status">
+                  <option value="1" selected>Show</option>
+                  <option value="0">Hide</option>
+                </select>
+              </div>
+              <button type="submit" *ngIf="categoryFormUpdate.valid" class="btn btn-primary">Submit</button>
+              <button type="submit" *ngIf="!categoryFormUpdate.valid" disabled class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

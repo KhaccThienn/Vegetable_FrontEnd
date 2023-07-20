@@ -1,0 +1,121 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+<div id="content-page" class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="iq-card">
+          <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+              <h4 class="card-title">Add new</h4>
+            </div>
+          </div>
+          <div class="iq-card-body">
+            <form [formGroup]="productFormPost" (ngSubmit)="handleSubmit()">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp">
+                <div class="box-message"
+                  *ngIf="productFormPost.controls.name.invalid && (productFormPost.controls.name.touched || productFormPost.controls.name.dirty)">
+                  <div *ngIf="productFormPost.controls.name.errors">
+
+                    <div *ngIf="productFormPost.controls.name.errors['required']" style="color: red;">name is require!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" formControlName="price" class="form-control" id="price" aria-describedby="emailHelp">
+                <div class="box-message"
+                  *ngIf="productFormPost.controls.price.invalid && (productFormPost.controls.price.touched || productFormPost.controls.price.dirty)">
+                  <div *ngIf="productFormPost.controls.price.errors">
+
+                    <div *ngIf="productFormPost.controls.price.errors['required']" style="color: red;">price is require!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sale_price">Sale Price</label>
+                <input type="text" formControlName="sale_price" class="form-control" id="sale_price"
+                  aria-describedby="emailHelp">
+                <div class="box-message"
+                  *ngIf="productFormPost.controls.sale_price.invalid && (productFormPost.controls.sale_price.touched || productFormPost.controls.sale_price.dirty)">
+                  <div *ngIf="productFormPost.controls.sale_price.errors">
+
+                    <div *ngIf="productFormPost.controls.sale_price.errors['required']" style="color: red;">sale_price
+                      is require!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="category_id">Category</label>
+                <select class="form-control" formControlName="category_id" id="category_id">
+                  <option *ngFor="let item of data" value="{{ item.id }}">{{ item.name }}</option>
+                </select>
+
+                <div class="box-message"
+                  *ngIf="productFormPost.controls.category_id.invalid && (productFormPost.controls.category_id.touched || productFormPost.controls.category_id.dirty)">
+                  <div *ngIf="productFormPost.controls.image.errors">
+
+                    <div *ngIf="productFormPost.controls.category_id.errors['required']" style="color: red;">category_id is
+                      require!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" formControlName="image" class="form-control" id="description"
+                  aria-describedby="emailHelp">
+                <div class="box-message"
+                  *ngIf="productFormPost.controls.image.invalid && (productFormPost.controls.image.touched || productFormPost.controls.image.dirty)">
+                  <div *ngIf="productFormPost.controls.image.errors">
+
+                    <div *ngIf="productFormPost.controls.image.errors['required']" style="color: red;">image is
+                      require!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select name="status" formControlName="status" class="form-control" id="status">
+                  <option value="1" selected>Show</option>
+                  <option value="0">Hide</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" formControlName="description" class="form-control" id="name"
+                  aria-describedby="emailHelp">
+                <div class="box-message"
+                  *ngIf="productFormPost.controls.image.invalid && (productFormPost.controls.description.touched || productFormPost.controls.description.dirty)">
+                  <div *ngIf="productFormPost.controls.image.errors">
+
+                    <div *ngIf="productFormPost.controls.image.errors['required']" style="color: red;">description is
+                      require!
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" *ngIf="productFormPost.valid" class="btn btn-primary">Submit</button>
+              <button type="submit" *ngIf="!productFormPost.valid" disabled class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
